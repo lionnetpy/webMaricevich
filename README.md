@@ -203,6 +203,18 @@ Archivos listos para desplegar:
 
 Los cuatro toman como salida `dist/webMaricevich/browser`. Si cambiás el nombre del proyecto en `angular.json`, actualizá esa ruta en los archivos de deploy.
 
+### CSP y CSS crítico
+
+El build de producción usa `"inlineCritical": false` en `angular.json`. Angular, cuando inlinea CSS crítico, inserta un script inline que cambia el `media` de la hoja de estilos principal; un CSP estricto con `script-src 'self'` bloquea ese script y la página queda sin estilos. Mantené `inlineCritical` desactivado mientras uses el CSP de `netlify.toml`/`_headers`, o ajustá el CSP si algún día lo volvés a activar.
+
+### Netlify
+
+- Si el repositorio contiene la carpeta `webMaricevich/` en la raíz, configurá **Base directory** = `webMaricevich`.
+- Si el repositorio ya es el contenido de la web, dejá **Base directory** vacío.
+- Build command: `npm run build`.
+- Publish directory: `dist/webMaricevich/browser`.
+
+
 ## Testing
 
 ```bash
