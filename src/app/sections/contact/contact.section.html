@@ -1,0 +1,128 @@
+<section class="contact" id="contacto">
+    <div class="container contact-grid grid w-full">
+        <div class="contact-copy reveal">
+            <p class="eyebrow">{{ heading.eyebrow }}</p>
+            <h2>{{ heading.title }}<br><em>{{ heading.highlight }}</em></h2>
+            <p>{{ heading.lead }}</p>
+
+            <div class="contact-details">
+                @for (detail of details; track detail.label) {
+                    <div class="contact-detail">
+                        <span class="contact-icon"><i [class]="'pi ' + detail.icon" aria-hidden="true"></i></span>
+                        <div>
+                            <small>{{ detail.label }}</small>
+                            @if (detail.href) {
+                                <a [href]="detail.href" [attr.target]="detail.external ? '_blank' : null" [attr.rel]="detail.external ? 'noopener' : null">{{ detail.value }}</a>
+                            } @else {
+                                <strong>{{ detail.value }}</strong>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="contact-card reveal">
+            <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+                <div class="form-row">
+                    <div class="field">
+                        <label for="name">Nombre y apellido *</label>
+                        <input id="name" formControlName="name" pInputText type="text" autocomplete="name" placeholder="Tu nombre">
+                        @if (form.controls.name.invalid && form.controls.name.touched) {
+                            <small class="field-error">Ingresá tu nombre.</small>
+                        }
+                    </div>
+                    <div class="field">
+                        <label for="company">Empresa</label>
+                        <input id="company" formControlName="company" pInputText type="text" autocomplete="organization" placeholder="Nombre de tu empresa">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="email">Email *</label>
+                        <input id="email" formControlName="email" pInputText type="email" autocomplete="email" placeholder="nombre@empresa.com">
+                        @if (form.controls.email.invalid && form.controls.email.touched) {
+                            <small class="field-error">Ingresá un email válido.</small>
+                        }
+                    </div>
+                    <div class="field">
+                        <label for="phone">Teléfono</label>
+                        <input id="phone" formControlName="phone" pInputText type="tel" autocomplete="tel" placeholder="+595 ...">
+                    </div>
+                </div>
+
+                <div class="field field--service">
+                    <label id="service-label">¿Qué necesitás? *</label>
+                    <p-select
+                        inputId="service"
+                        ariaLabelledBy="service-label"
+                        formControlName="service"
+                        [options]="services"
+                        optionLabel="label"
+                        optionValue="value"
+                        placeholder="Elegí el servicio que necesitás"
+                        styleClass="service-select"
+                        panelStyleClass="service-select-panel"
+                        scrollHeight="360px"
+                        [checkmark]="true"
+                        appendTo="body"
+                    >
+                        <ng-template #selectedItem let-service>
+                            <span class="service-picked">
+                                <span class="service-picked-icon">
+                                    <i [class]="'pi ' + service.icon" aria-hidden="true"></i>
+                                </span>
+                                <strong>{{ service.label }}</strong>
+                            </span>
+                        </ng-template>
+
+                        <ng-template #item let-service>
+                            <span class="service-option">
+                                <span class="service-option-icon">
+                                    <i [class]="'pi ' + service.icon" aria-hidden="true"></i>
+                                </span>
+                                <span class="service-option-copy">
+                                    <strong>{{ service.label }}</strong>
+                                    <small>{{ service.description }}</small>
+                                </span>
+                            </span>
+                        </ng-template>
+                    </p-select>
+                    @if (form.controls.service.invalid && form.controls.service.touched) {
+                        <small class="field-error">Seleccioná una opción.</small>
+                    }
+                </div>
+
+                <div class="field">
+                    <label for="message">Contanos brevemente *</label>
+                    <textarea id="message" formControlName="message" pTextarea rows="4" placeholder="Mercadería, origen, volumen estimado o tu consulta."></textarea>
+                    @if (form.controls.message.invalid && form.controls.message.touched) {
+                        <small class="field-error">Contanos un poco más (mínimo 10 caracteres).</small>
+                    }
+                </div>
+
+                <label class="check-field">
+                    <input type="checkbox" formControlName="privacy">
+                    <span>Leí y acepto la <a routerLink="/privacidad">política de privacidad</a>.</span>
+                </label>
+                @if (form.controls.privacy.invalid && form.controls.privacy.touched) {
+                    <small class="field-error">Necesitamos tu aceptación para continuar.</small>
+                }
+
+                <button class="button button--gold button--full" type="submit">
+                    Enviar consulta
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+
+                <p class="form-note">
+                    Se abrirá tu cliente de correo con el mensaje preparado. También podés escribirnos directamente a
+                    <a [href]="'mailto:' + site.email">{{ site.email }}</a>.
+                </p>
+                @if (status()) {
+                    <p class="form-status" role="status" aria-live="polite">{{ status() }}</p>
+                }
+            </form>
+        </div>
+    </div>
+</section>

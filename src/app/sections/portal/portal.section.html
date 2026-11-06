@@ -1,0 +1,65 @@
+<section class="section section--paper" id="portal">
+    <div class="container portal-grid grid w-full">
+        <div class="portal-copy reveal">
+            <p class="eyebrow eyebrow--dark">{{ heading.eyebrow }}</p>
+            <h2>{{ heading.title }}<br><em>{{ heading.highlight }}</em></h2>
+            <p>{{ heading.lead }}</p>
+
+            <ul class="feature-list">
+                @for (feature of features; track feature) {
+                    <li><span class="check"></span> {{ feature }}</li>
+                }
+            </ul>
+
+            <a class="button button--dark" [href]="systemUrl" target="_blank" rel="noopener">
+                {{ heading.cta }}
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="microcopy">Acceso exclusivo para usuarios autorizados.</p>
+        </div>
+
+        <div class="browser reveal" aria-label="Vista ilustrativa del sistema Maricevich">
+            <div class="browser-bar">
+                <span></span><span></span><span></span>
+                <div class="browser-url">app.maricevich.com.py</div>
+            </div>
+            <div class="app-mock">
+                <aside class="mock-sidebar">
+                    <div class="mock-brand">
+                        <img [src]="brand.logoMarkWebp" alt="" width="28" height="28" loading="lazy">
+                        <span>MARICEVICH</span>
+                    </div>
+                    <div class="mock-nav">
+                        <span class="active">Inicio</span>
+                        <span>Agenda</span>
+                        <span>Partidas</span>
+                        <span>Desglose</span>
+                        <span>Liquidaciones</span>
+                        <span>Auditoría</span>
+                    </div>
+                </aside>
+                <div class="mock-main">
+                    <div class="mock-top">
+                        <div><strong>Operaciones</strong><small>Resumen del día</small></div>
+                        <span class="mock-avatar">AM</span>
+                    </div>
+                    <div class="mock-stats">
+                        @for (stat of mockStats; track stat.label) {
+                            <div><span>{{ stat.label }}</span><strong>{{ stat.value }}</strong></div>
+                        }
+                    </div>
+                    <div class="mock-table">
+                        <div class="mock-table-head"><span>Operación</span><span>Estado</span></div>
+                        @for (row of mockRows; track row.code) {
+                            <div class="mock-table-row">
+                                <span>{{ row.code }}</span>
+                                <em class="mock-tag" [class.mock-tag--gold]="row.tone === 'gold'" [class.mock-tag--teal]="row.tone === 'teal'">{{ row.status }}</em>
+                            </div>
+                        }
+                    </div>
+                    <div class="mock-note"><span></span> Historial auditado y acceso por roles</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

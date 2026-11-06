@@ -1,0 +1,23 @@
+<section class="section section--paper" id="preguntas">
+    <div class="container faq-grid grid w-full">
+        <div class="faq-copy reveal">
+            <p class="eyebrow eyebrow--dark">{{ heading.eyebrow }}</p>
+            <h2>{{ heading.title }}<br><em>{{ heading.highlight }}</em></h2>
+            <p>{{ heading.lead }}</p>
+            <a class="text-link" href="#contacto">{{ heading.link }} <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="reveal">
+            <p-accordion [multiple]="true" styleClass="faq-accordion">
+                @for (faq of faqs; track faq.question; let i = $index) {
+                    <p-accordion-panel [value]="'faq-' + i">
+                        <p-accordion-header>{{ faq.question }}</p-accordion-header>
+                        <p-accordion-content>
+                            <p>{{ faq.answer }}</p>
+                        </p-accordion-content>
+                    </p-accordion-panel>
+                }
+            </p-accordion>
+        </div>
+    </div>
+</section>

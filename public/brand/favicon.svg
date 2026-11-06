@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">Maricevich</title>
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102f3d"/>
+      <stop offset="1" stop-color="#07151d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7c16b"/>
+      <stop offset="1" stop-color="#b98a32"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="152" height="152" rx="34" fill="url(#navy)" stroke="url(#gold)" stroke-width="3"/>
+  <path d="M34 116V48h16l26 38 26-38h16v68H102V76L78 110 54 76v40z" fill="#f7f2e7"/>
+  <path d="M112 50h9v9h-9zM112 63h9v9h-9zM112 76h9v9h-9z" fill="url(#gold)"/>
+</svg>

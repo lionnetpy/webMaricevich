@@ -1,0 +1,20 @@
+{
+    "name": "Maricevich | Gestión aduanera",
+    "short_name": "Maricevich",
+    "description": "Gestión aduanera y comercio exterior en Asunción, Paraguay.",
+    "lang": "es-PY",
+    "dir": "ltr",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#f7f2e7",
+    "theme_color": "#07151d",
+    "icons": [
+        {
+            "src": "brand/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
+}

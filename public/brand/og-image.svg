@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07151d"/>
+      <stop offset="0.55" stop-color="#0b1f2a"/>
+      <stop offset="1" stop-color="#102f3d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7c16b"/>
+      <stop offset="1" stop-color="#b98a32"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#ffffff" stroke-opacity="0.035"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1010" cy="120" r="180" fill="#0f6b6b" opacity="0.18"/>
+  <circle cx="1110" cy="520" r="240" fill="#c59a43" opacity="0.08"/>
+  <rect x="76" y="70" width="124" height="124" rx="28" fill="#07151d" stroke="url(#gold)" stroke-width="2"/>
+  <path d="M100 164V100h13l21 31 21-31h13v64h-13v-39l-21 29-21-29v39z" fill="#f7f2e7"/>
+  <path d="M164 102h7v7h-7zM164 113h7v7h-7zM164 124h7v7h-7z" fill="url(#gold)"/>
+  <text x="76" y="286" font-family="Georgia, 'Times New Roman', serif" font-size="64" fill="#f7f2e7" letter-spacing="1">Maricevich</text>
+  <text x="80" y="322" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="7" fill="#e7c16b">GESTIÓN ADUANERA</text>
+  <line x1="78" y1="362" x2="1124" y2="362" stroke="#e7c16b" stroke-opacity="0.45"/>
+  <text x="78" y="438" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#f7f2e7">Comercio exterior sin fricción.</text>
+  <text x="80" y="486" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#b9c6cf">Clasificación arancelaria · Desglose · Liquidaciones</text>
+  <text x="80" y="548" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="2" fill="#e7c16b">ASUNCIÓN · PARAGUAY</text>
+</svg>

@@ -1,0 +1,25 @@
+<section class="section section--dark" id="proceso">
+    <div class="container process-grid grid w-full">
+        <div class="process-copy reveal">
+            <p class="eyebrow">{{ heading.eyebrow }}</p>
+            <h2>{{ heading.title }}<br><em>{{ heading.highlight }}</em></h2>
+            <p>{{ heading.lead }}</p>
+            <a class="button button--gold" href="#contacto">
+                {{ heading.cta }}
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+        </div>
+
+        <ol class="process-list">
+            @for (step of steps; track step.number) {
+                <li class="process-step reveal">
+                    <span class="step-number">{{ step.number }}</span>
+                    <div>
+                        <h3>{{ step.title }}</h3>
+                        <p>{{ step.description }}</p>
+                    </div>
+                </li>
+            }
+        </ol>
+    </div>
+</section>

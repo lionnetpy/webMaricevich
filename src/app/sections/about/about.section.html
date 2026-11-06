@@ -1,0 +1,25 @@
+<section class="section section--cream" id="nosotros">
+    <div class="container">
+        <div class="section-heading section-heading--center reveal">
+            <p class="eyebrow eyebrow--dark">{{ heading.eyebrow }}</p>
+            <h2>{{ heading.title }}<br><em>{{ heading.highlight }}</em></h2>
+            <p class="section-lead">{{ heading.lead }}</p>
+        </div>
+
+        <div class="values-grid grid gap-5">
+            @for (value of values; track value.number) {
+                <article class="value-card reveal">
+                    <span class="value-icon">{{ value.number }}</span>
+                    <h3>{{ value.title }}</h3>
+                    <p>{{ value.description }}</p>
+                </article>
+            }
+        </div>
+
+        <blockquote class="statement reveal">
+            <span class="statement-mark" aria-hidden="true">“</span>
+            <p>{{ statement.quote }}</p>
+            <footer>{{ statement.footer }}</footer>
+        </blockquote>
+    </div>
+</section>

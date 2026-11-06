@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="160" viewBox="0 0 600 160" role="img" aria-labelledby="title">
+  <title id="title">Maricevich - Gestión Aduanera</title>
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102f3d"/>
+      <stop offset="1" stop-color="#07151d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e7c16b"/>
+      <stop offset="1" stop-color="#b98a32"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="152" height="152" rx="34" fill="url(#navy)" stroke="url(#gold)" stroke-width="3"/>
+  <path d="M34 116V48h16l26 38 26-38h16v68H102V76L78 110 54 76v40z" fill="#f7f2e7"/>
+  <path d="M112 50h9v9h-9zM112 63h9v9h-9zM112 76h9v9h-9z" fill="url(#gold)"/>
+  <text x="184" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="2" fill="#102f3d">MARICEVICH</text>
+  <text x="187" y="112" font-family="Arial, Helvetica, sans-serif" font-size="17" letter-spacing="6.5" fill="#b98a32">GESTIÓN ADUANERA</text>
+  <line x1="187" y1="126" x2="565" y2="126" stroke="#d8c59a" stroke-width="1.5"/>
+</svg>

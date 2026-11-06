@@ -1,0 +1,86 @@
+<section class="hero" id="inicio">
+    <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+
+    <div class="container hero-grid w-full">
+        <div class="hero-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> {{ content.eyebrow }}</p>
+            <h1>{{ content.titleTop }}<br><em>{{ content.titleHighlight }}</em></h1>
+            <p class="hero-lead">{{ content.lead }}</p>
+
+            <div class="hero-actions">
+                <a class="button button--gold" href="#contacto">
+                    {{ content.primaryCta }}
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+                <a class="button button--ghost" href="#servicios">{{ content.secondaryCta }}</a>
+            </div>
+
+            <ul class="hero-points" aria-label="Fortalezas">
+                @for (point of points; track point) {
+                    <li><span class="check"></span> {{ point }}</li>
+                }
+            </ul>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="Ejemplo ilustrativo de una operación aduanera">
+            <div class="orbital" aria-hidden="true"></div>
+
+            <div class="operation-card">
+                <div class="operation-top">
+                    <div>
+                        <span class="label">Operación</span>
+                        <strong>{{ operation.code }}</strong>
+                    </div>
+                    <span class="status-pill"><span></span> {{ operation.status }}</span>
+                </div>
+
+                <div class="route">
+                    <div class="route-point">
+                        <span class="route-dot"></span>
+                        <small>Origen</small>
+                        <strong>{{ operation.origin }}</strong>
+                    </div>
+                    <div class="route-line" aria-hidden="true">
+                        <span></span>
+                        <svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+                    </div>
+                    <div class="route-point route-point--end">
+                        <span class="route-dot"></span>
+                        <small>Destino</small>
+                        <strong>{{ operation.destination }}</strong>
+                    </div>
+                </div>
+
+                <div class="operation-rows">
+                    @for (row of operation.rows; track row.label) {
+                        <div class="operation-row" [class.operation-row--total]="row.total">
+                            <span>{{ row.label }}</span>
+                            <strong>{{ row.value }}</strong>
+                        </div>
+                    }
+                </div>
+
+                <div class="operation-foot">
+                    <span class="mini-label">Ejemplo ilustrativo</span>
+                    <a href="#contacto">Solicitar desglose <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+
+            @for (card of floatingCards; track card.title) {
+                <div class="floating-card" [class.floating-card--top]="card.position === 'top'" [class.floating-card--bottom]="card.position === 'bottom'">
+                    <span class="floating-icon" [class.floating-icon--teal]="card.tone === 'teal'" [class.floating-icon--gold]="card.tone === 'gold'">
+                        <i [class]="'pi ' + card.icon" aria-hidden="true"></i>
+                    </span>
+                    <div><strong>{{ card.title }}</strong><small>{{ card.subtitle }}</small></div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="container trust-strip reveal">
+        @for (item of trust; track item) {
+            <span>{{ item }}</span>
+        }
+    </div>
+</section>

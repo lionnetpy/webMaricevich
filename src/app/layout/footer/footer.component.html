@@ -1,0 +1,38 @@
+<footer class="site-footer">
+    <div class="container footer-main grid w-full">
+        <div class="footer-brand">
+            <picture>
+                <source [srcset]="brand.logoLightAvif" type="image/avif">
+                <source [srcset]="brand.logoLightWebp" type="image/webp">
+                <img [src]="brand.logoLightWebp" alt="Maricevich" width="220" height="59" loading="lazy">
+            </picture>
+            <p>Gestión aduanera y comercio exterior.<br>{{ site.city }}.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Navegación</h3>
+            @for (section of sections; track section.id) {
+                <a [href]="'/' + '#' + section.id">{{ section.label }}</a>
+            }
+        </div>
+
+        <div class="footer-column">
+            <h3>Contacto</h3>
+            <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+            <span>{{ site.city }}</span>
+            <a [href]="systemUrl" target="_blank" rel="noopener">Acceso al sistema</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Legal</h3>
+            <a routerLink="/privacidad">Política de privacidad</a>
+            <a routerLink="/terminos">Términos de uso</a>
+            <span>Sitio sin cookies de marketing.</span>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <span>© {{ year }} {{ site.name }}. Todos los derechos reservados.</span>
+        <span>Comercio exterior sin fricción.</span>
+    </div>
+</footer>

@@ -1,0 +1,537 @@
+/* ============================================================
+   Maricevich · sitio corporativo
+   Tailwind CSS 4 + Optimus UI 2 + estilos de marca
+   ============================================================ */
+
+@use './tailwind.css';
+
+:root {
+    --ink: #07151d;
+    --navy: #0b1f2a;
+    --navy-2: #102f3d;
+    --teal: #0f6b6b;
+    --teal-dark: #094949;
+    --gold: #c59a43;
+    --gold-soft: #e7c16b;
+    --cream: #f7f2e7;
+    --paper: #f3f5f7;
+    --white: #ffffff;
+    --muted: #64748b;
+    --muted-dark: #aebbc5;
+    --line: rgba(7, 21, 29, 0.12);
+    --line-light: rgba(247, 242, 231, 0.16);
+    --shadow: 0 24px 60px rgba(7, 21, 29, 0.14);
+    --shadow-soft: 0 12px 30px rgba(7, 21, 29, 0.08);
+    --display: Georgia, "Times New Roman", serif;
+    --body: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    --container: 1180px;
+    --header-h: 78px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+body.nav-open {
+    overflow: hidden;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: rgba(197, 154, 67, 0.32);
+    color: var(--ink);
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold-soft);
+    outline-offset: 3px;
+}
+
+.container {
+    width: min(100% - 48px, var(--container));
+    margin-inline: auto;
+}
+
+.skip-link {
+    position: fixed;
+    left: 16px;
+    top: -100px;
+    z-index: 1000;
+    padding: 10px 16px;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: 8px;
+    font-weight: 700;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 16px;
+}
+
+/* ── Shared design system ─────────────────────────────────────────────── */
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px;
+    color: var(--gold-soft);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.eyebrow--dark {
+    color: var(--teal);
+}
+
+.eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    box-shadow: 0 0 0 4px rgba(231, 193, 107, 0.12);
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: 0 0 auto;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 13px 22px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button--gold {
+    background: var(--gold);
+    color: var(--ink);
+    box-shadow: 0 12px 26px rgba(197, 154, 67, 0.22);
+}
+
+.button--gold:hover {
+    background: var(--gold-soft);
+}
+
+.button--ghost {
+    border-color: rgba(247, 242, 231, 0.28);
+    color: var(--cream);
+    background: rgba(247, 242, 231, 0.03);
+}
+
+.button--ghost:hover {
+    border-color: var(--gold-soft);
+    color: var(--gold-soft);
+}
+
+.button--dark {
+    background: var(--ink);
+    color: var(--cream);
+}
+
+.button--dark:hover {
+    background: var(--teal);
+}
+
+.button--full {
+    width: 100%;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--teal);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.text-link span {
+    transition: transform 0.2s ease;
+}
+
+.text-link:hover span {
+    transform: translate(3px, -3px);
+}
+
+.check {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: rgba(15, 107, 107, 0.12);
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.check::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 4px;
+    width: 5px;
+    height: 8px;
+    border: solid var(--teal);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.section {
+    position: relative;
+    padding: clamp(72px, 9vw, 118px) 0;
+    scroll-margin-top: 90px;
+}
+
+.section--paper {
+    background: var(--paper);
+}
+
+.section--cream {
+    background: var(--cream);
+}
+
+.section--dark {
+    background:
+        radial-gradient(circle at 80% 30%, rgba(15, 107, 107, 0.2), transparent 34%),
+        linear-gradient(145deg, var(--ink), var(--navy) 68%, #0c2633);
+    color: var(--cream);
+}
+
+.section h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+
+.section h2 em {
+    color: var(--teal);
+    font-style: normal;
+}
+
+.section--dark h2 em {
+    color: var(--gold-soft);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: clamp(28px, 6vw, 80px);
+    margin-bottom: 48px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3.8vw, 3.15rem);
+    line-height: 1.08;
+}
+
+.section-lead {
+    max-width: 420px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.75;
+}
+
+.section--dark .section-lead {
+    color: var(--muted-dark);
+}
+
+.section-heading--center {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    max-width: 780px;
+    margin-inline: auto;
+    margin-bottom: 46px;
+}
+
+.section-heading--center .section-lead {
+    max-width: 600px;
+    margin-top: 14px;
+}
+
+.microcopy {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 0.68rem;
+}
+
+/* ── Reveal ───────────────────────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.is-visible:nth-child(2) { transition-delay: 0.06s; }
+.reveal.is-visible:nth-child(3) { transition-delay: 0.12s; }
+.reveal.is-visible:nth-child(4) { transition-delay: 0.18s; }
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ── Legal pages ──────────────────────────────────────────────────────── */
+.legal-page {
+    padding: calc(var(--header-h) + 60px) 0 80px;
+    background: var(--paper);
+    min-height: 70vh;
+}
+
+.legal-hero {
+    max-width: 780px;
+    margin-bottom: 34px;
+}
+
+.legal-hero h1 {
+    margin: 12px 0;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.08;
+}
+
+.legal-hero p {
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.legal-card {
+    max-width: 860px;
+    padding: clamp(22px, 4vw, 40px);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--white);
+}
+
+.legal-card h2 {
+    margin: 28px 0 8px;
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.legal-card h2:first-child {
+    margin-top: 0;
+}
+
+.legal-card p,
+.legal-card li {
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.8;
+}
+
+.legal-card ul {
+    padding-left: 20px;
+}
+
+.legal-card a {
+    color: var(--teal);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.legal-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 18px;
+    color: var(--teal);
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+/* Ajustes básicos de Optimus UI en el tema de marca */
+.p-accordion {
+    --p-accordion-header-background: transparent;
+    --p-accordion-header-hover-background: rgba(15, 107, 107, 0.04);
+    --p-accordion-content-background: transparent;
+}
+
+/* Selector de servicio del formulario de contacto */
+.service-select-panel.p-select-overlay {
+    margin-top: 7px;
+    padding: 6px;
+    border: 1px solid rgba(15, 107, 107, 0.16);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: 0 24px 55px rgba(7, 21, 29, 0.22);
+    overflow: hidden;
+}
+
+.service-select-panel .p-select-list {
+    padding: 0;
+}
+
+.service-select-panel .p-select-option {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: 2px 0;
+    padding: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--ink);
+    transition: background 0.18s ease;
+}
+
+.service-select-panel .p-select-option:first-child {
+    margin-top: 0;
+}
+
+.service-select-panel .p-select-option:last-child {
+    margin-bottom: 0;
+}
+
+.service-select-panel .p-select-option.p-focus,
+.service-select-panel .p-select-option:hover {
+    background: #eef6f4;
+}
+
+.service-select-panel .p-select-option[data-p-selected="true"] {
+    background: rgba(197, 154, 67, 0.14);
+}
+
+.service-select-panel .p-select-option[data-p-selected="true"] .service-option-icon {
+    background: var(--gold);
+    color: var(--ink);
+}
+
+.service-select-panel .service-option {
+    order: 1;
+}
+
+.service-select-panel .p-select-option-check-icon,
+.service-select-panel .p-select-option-blank-icon {
+    order: 2;
+    flex: 0 0 auto;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left: 8px;
+    margin-right: 12px;
+}
+
+.service-select-panel .p-select-option-check-icon {
+    color: var(--teal);
+}
+
+.service-select-panel .p-select-option-blank-icon {
+    opacity: 0;
+}
+
+
+@media (max-width: 920px) {
+    :root {
+        --header-h: 70px;
+    }
+
+    .container {
+        width: min(100% - 32px, var(--container));
+    }
+
+    .section-heading {
+        display: grid;
+        gap: 18px;
+    }
+
+    .legal-page {
+        padding-top: calc(var(--header-h) + 40px);
+    }
+}
+
+@media (max-width: 680px) {
+    .section-heading h2 {
+        font-size: clamp(1.9rem, 10vw, 2.6rem);
+    }
+
+    .section-lead {
+        max-width: 100%;
+    }
+
+    .button {
+        width: 100%;
+    }
+}

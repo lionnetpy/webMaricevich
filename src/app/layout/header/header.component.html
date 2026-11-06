@@ -1,0 +1,41 @@
+<header class="site-header" [class.is-scrolled]="scrolled()" [class.nav-open]="menuOpen()">
+    <div class="container header-inner w-full">
+        <a class="brand" routerLink="/" aria-label="Maricevich, inicio" (click)="closeMenu()">
+            <picture>
+                <source [srcset]="brand.logoLightAvif" type="image/avif">
+                <source [srcset]="brand.logoLightWebp" type="image/webp">
+                <img [src]="brand.logoLightWebp" alt="Maricevich" width="250" height="67" fetchpriority="high">
+            </picture>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+            @for (section of sections; track section.id) {
+                <a
+                    [href]="'#' + section.id"
+                    [class.is-active]="isActive(section)"
+                    [attr.aria-current]="isActive(section) ? 'true' : null"
+                    (click)="navigateTo(section, $event)"
+                >
+                    {{ section.label }}
+                </a>
+            }
+            <a class="nav-system" [href]="systemUrl" target="_blank" rel="noopener">
+                Acceso al sistema
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17 17 7M8 7h9v9"/>
+                </svg>
+            </a>
+        </nav>
+
+        <button
+            class="nav-toggle"
+            type="button"
+            [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+            aria-controls="site-nav"
+            [attr.aria-expanded]="menuOpen()"
+            (click)="toggleMenu()"
+        >
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
